@@ -1,3 +1,5 @@
+use std::ops::Mul;
+
 // Define a function named `factorial` that, given a non-negative integer `n`,
 // returns `n!`, the factorial of `n`.
 //
@@ -9,6 +11,13 @@
 // `factorial(2)` to return `2`, and so on.
 //
 // Use only what you learned! No loops yet, so you'll have to use recursion!
+fn factorial(n: i32) -> i32 {
+    match n {
+        0 => 1,
+        1 => 1,
+        _ => (1..=n).fold(1, |acc, x| acc * x),
+    }
+}
 
 #[cfg(test)]
 mod tests {
